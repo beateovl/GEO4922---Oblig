@@ -1,9 +1,11 @@
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{subcaption}% Required for inserting images
+\usepackage{caption}
+
 
 \title{Cloud physics mandatory project}
-\author{beateoevland }
+\author{Selma Beate Øvland }
 \date{April 2026}
 
 \begin{document}
@@ -13,7 +15,7 @@
 \maketitle
 
 
-\section{Problem 1}
+\section*{Problem 1}
 
 \subsection*{a) Aerosol Distribution Modes from Ship Emissions}
 
@@ -272,6 +274,38 @@ The horizontal domain is 120 km × 120 km, with 120 grid points in each directio
 \subsubsection*{6)}
 Cloud phases: 
 
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/cloud.0003.png}
+        \caption{t = 3}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/cloud.0006.png}
+        \caption{t = 6}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/cloud.0009.png}
+        \caption{t = 9}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/cloud.0013.png}
+        \caption{t = 13}
+    \end{subfigure}
+
+    \caption{Cloud field evolution from the Morrison simulation at four different timesteps, showing the development of the system from early growth (t=3) to a more mature stage (t=13).}
+    \label{fig:cloud_evolution_morrison}
+\end{figure}
+
 \title{Initial phase (timestep 0-3):}
 
 At the beginning of the formation of the cell we have a weak convective cell. A localized updraft is developing near the surface. The cloud water (qc) is shallow and compact, and hasn't yet developed vertically, meaning convection is still weak. In this stage, warm air has begun to rise, but it isn't yet a storm. The flow field (wind and vertical velocity) shows a weaker updraft. There is very little graupel and cloud ice formed at this stage. 
@@ -293,6 +327,68 @@ The storm starts to die out. We get smaller cores and a multicellular system. Th
 
 Vertical and horizontal slices. The vertical slices are taken around the core of the storm (x=48, y=48). The horizontal slices are taken at 500m, 2000m, 5000, and 10000m, although the dataset seems to start at 250m, so there might be an offset of 250m. 
 
+
+\subsubsection{Horizontal slice profiles}
+
+
+\subsubsection{Vertical slice profiles}
+
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/uinterp_x48_t09_1.png}
+        \caption{$u$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/uinterp_y48_t09.png}
+        \caption{$u$, $y=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/vinterp_x48_t09_1.png}
+        \caption{$v$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/vinterp_y48_t09_1.png}
+        \caption{$v$, $y=48$, $t=09$}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/winterp_x48_t06_1.png}
+        \caption{$w$, $x=48$, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/winterp_y48_t06_1.png}
+        \caption{$w$, $y=48$, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/winterp_x48_t09_1.png}
+        \caption{$w$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Morrison/Slices/Vertical/winterp_y48_t09_1.png}
+        \caption{$w$, $y=48$, $t=09$}
+    \end{subfigure}
+
+    \caption{Vertical cross-sections of the wind components from the Kessler simulation. The top row shows $u$ and $v$ at $t=09$, while the bottom row shows $w$ at $t=06$ and $t=09$.}
+    \label{fig:vertical_wind_kessler}
+\end{figure}
+
+
+
+
+
 Potential temperature profiles: 
 
 The vertical profiles at t=06 show that $\theta$ increases with height, indicating stable stratification. We do see some weak, localized perturbations and a slight warming in the midsection, indicating early latent heat release. At t=10, there is a clear warm anomaly in the mid- and left sections, which passes through the storm. Compared to t=06, we see colder temperatures forming near the surface. At t=10, there is a clear warm core. The difference between t=06 and t=10 shows that the updraft has strengthened, more latent heat has been released, and a mature supercell structure is forming. 
@@ -310,6 +406,38 @@ The uinterp horizontal profiles show strong gradients and a change from positive
 \subsection*{c)}
 
 \subsubsection*{Cloud evolution: }
+
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/cloud_kessler.0003.png}
+        \caption{t = 3}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/cloud_kessler.0006.png}
+        \caption{t = 6}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/cloud_kessler.0009.png}
+        \caption{t = 9}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/cloud_kessler.0013.png}
+        \caption{t = 13}
+    \end{subfigure}
+
+    \caption{Cloud field evolution from the Kessler simulation at four different timesteps, showing the development of the system from early growth (t=3) to a more mature stage (t=13).}
+    \label{fig:cloud_evolution}
+\end{figure}
 
 In the Kessler scheme, we have only cloud water (no ice) and precipitation at the ground. \\
 
@@ -333,18 +461,232 @@ The cloud is diffusing, widening more, less coherent. Surface precipitation rema
 
 We don't see a clear supercell structure; there is no single rotating updraft and no clear separation between updraft and precipitation. It's a disorganized multicell system. Because of no ice and no graupel, we see no latent heat release from freezing and no strong upper-level processes. This results in weaker updrafts and a less organized, shorter-lived convective system. 
 
-\subsubsection*{Horizontal slices, t=09}
+\subsubsection*{Horizontal slices, t=06 and t=09}
 
 \title{Potential temperature:}
+
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    % --- t = 0.6 (TOP ROW) ---
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/500m/th_750m.0006.png}
+        \caption{$\theta$; 500 m, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/2000m/th_2250m.0006.png}
+        \caption{$\theta$; 2000 m, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/5000m/th_5250m.0006.png}
+        \caption{$\theta$; 5000 m, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/10000m/th_10250m.0006.png}
+        \caption{$\theta$; 10000 m, $t=06$}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    % --- t = 0.9 (BOTTOM ROW) ---
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/500m/th_750m.0009.png}
+        \caption{$\theta$; 500 m, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/2000m/th_2250m.0009.png}
+        \caption{$\theta$; 2000 m, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/5000m/th_5250m.0009.png}
+        \caption{$\theta$; 5000 m, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/th/10000m/th_10250m.0009.png}
+        \caption{$\theta$; 10000 m, $t=09$}
+    \end{subfigure}
+
+    \caption{Horizontal slices of potential temperature ($\theta$) at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=06$, top row) and mature stage ($t=09$, bottom row) of the storm.}
+    \label{fig:theta_slices}
+\end{figure}
 
 At 500m, there are mostly uniform values, but slight localized variations near the storm region. So the boundary layer remains relatively well mixed, and only weak cooling occurs near the downdraft and precipitation areas. At 2000m, more structure appears with slight gradients near the storm region. This indicates air is being lifted  (we have cooler gradients). \\
 
 \title{Wind, u and v:}
 
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    % --- U COMPONENTS (TOP ROW) ---
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/uinterp/500m copy/uinterp_750m.0009.png}
+        \caption{uinterp; 500m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/uinterp/2000m copy/uinterp_2250m.0009.png}
+        \caption{uinterp; 2000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/uinterp/5000m copy/uinterp_5250m.0009.png}
+        \caption{uinterp; 5000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/uinterp/10000m copy/uinterp_10250m.0009.png}
+        \caption{uinterp; 10000m, t=09}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    % --- V COMPONENTS (BOTTOM ROW) ---
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/vinterp/500m copy/vinterp_750m.0009.png}
+        \caption{vinterp; 500m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/vinterp/2000m copy/vinterp_2250m.0009.png}
+        \caption{vinterp; 2000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/vinterp/5000m copy/vinterp_5250m.0009.png}
+        \caption{vinterp; 5000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/vinterp/10000m copy/vinterp_10250m.0009.png}
+        \caption{vinterp; 10000m, t=09}
+    \end{subfigure}
+
+    \caption{Horizontal slice plots of the horizontal wind components, $u$ (top row) and $v$ (bottom row), at four different heights during the mature stage of the storm ($t=09$).}
+    \label{fig:wind_slices}
+\end{figure}
+
+
+
 The general pattern at both heights, for both wind components, shows clear spatial variability, with regions of stronger inflow and weaker outflow. At 500m the winds are smoother, and you can see them feeding the storm region, towards the updraft region. At 2000m, the winds become more irregular and spread out. There are both updrafts and downdrafts, and the winds are being disrupted and deflected. 
 
 \title{Vertical wind, w, at t=09 and t=06:}
 
+\begin{figure}[h!]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
 
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/500m copy/winterp_750m.0006.png}
+        \caption{winterp; 500m, t=06}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/2000m copy/winterp_2250m.0006.png}
+        \caption{winterp; 2000m, t=06}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/5000m copy/winterp_5250m.0006.png}
+        \caption{winterp; 5000m, t=06}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/10000m copy/winterp_10250m.0006.png}
+        \caption{winterp; 10000m, t=06}
+    \end{subfigure}
+
+    \vspace{0.25cm}
+
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/500m copy/winterp_750m.0009.png}
+        \caption{winterp; 500m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/2000m copy/winterp_2250m.0009.png}
+        \caption{winterp; 2000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/5000m copy/winterp_5250m.0009.png}
+        \caption{winterp; 5000m, t=09}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/winterp/10000m copy/winterp_10250m.0009.png}
+        \caption{winterp; 10000m, t=09}
+    \end{subfigure}
+
+    \caption{Horizontal slice plots of the vertical wind component, winterp, at four different heights around the growth stage of the storm, t=06, and the mature stage of the storm, t=09 .}
+    \label{fig:wind_slices}
+\end{figure}
+
+\subsubsection*{Vertical slices}
+
+\begin{figure}[htbp]
+    \centering
+    \captionsetup[subfigure]{font=scriptsize}
+
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/uinterp_x48_t09.png}
+        \caption{$u$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/uinterp_y48_t09.png}
+        \caption{$u$, $y=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/vinterp_x48_t09.png}
+        \caption{$v$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/vinterp_y48_t09.png}
+        \caption{$v$, $y=48$, $t=09$}
+    \end{subfigure}
+
+    \vspace{0.2cm}
+
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/winterp_x48_t06.png}
+        \caption{$w$, $x=48$, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/winterp_y48_t06.png}
+        \caption{$w$, $y=48$, $t=06$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/winterp_x48_t09.png}
+        \caption{$w$, $x=48$, $t=09$}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/winterp_y48_t09.png}
+        \caption{$w$, $y=48$, $t=09$}
+    \end{subfigure}
+
+    \caption{Vertical cross-sections of the wind components from the Kessler simulation. The top row shows $u$ and $v$ at $t=09$, while the bottom row shows $w$ at $t=06$ and $t=09$.}
+    \label{fig:vertical_wind_kessler}
+\end{figure}
 
 \end{document}
