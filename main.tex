@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}% Required for inserting images
 \usepackage{caption}
+\usepackage{hyperref}
 
 
 \title{Cloud physics mandatory project}
@@ -52,6 +53,15 @@ Formation of contrails behind an aircraft is an example of isobaric adiabatic mi
 Because the relationship between temperature and saturation water vapor-pressure is non-linear (described by the Clausius-Clapeyron relation), the mixed air can temporarily become supersaturated with respect to water. When this happens, the excess water vapor rapidly condenses or freezes onto particles in the exhaust, forming ice crystals. These ice crystals are visible as cloud trails behind the aircraft, known as contrails. 
 
 \section*{Problem 2}
+
+\subsection{a)}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{path/to/your/image.png}
+    \caption{This is your figure caption.}
+    \label{fig:my_figure}
+\end{figure}
 
 \subsection*{b) Dry and moist adiabat}
 
@@ -236,7 +246,7 @@ This value represents an ideal upper limit. In reality, vertical velocities are 
 
 \subsubsection*{2)}
 
-The CM1 (Cloud Model 1) is a three-dimensional, nonhydrostatic numerical model designed to simulate atmospheric flows at cloud-resolving scales. It solves the compressible Navier–Stokes equations using finite-difference methods on a structured grid.
+The CM1 (Cloud Model 1) is a three-dimensional computer model used to simulate atmospheric processes at small scales, such as clouds and storms. It solves the basic equations (Navier Stokes) that describe how air moves, including the effects of pressure, temperature, and wind
 
 The model includes representations of key physical processes such as:
 - Atmospheric dynamics (advection, pressure gradients, buoyancy)
@@ -245,19 +255,17 @@ The model includes representations of key physical processes such as:
 - Surface fluxes and boundary layer processes
 - Optional radiation and Coriolis effects
 
-CM1 is highly flexible and is commonly used in idealized simulations to study deep convection, supercells, squall lines, and boundary layer processes. Its main purpose is to improve understanding of storm dynamics, cloud processes, and interactions between thermodynamics and flow fields.
+CM1 is often used to study storms in simplified setups. It helps scientists understand how storms develop, how clouds form, and how temperature and wind interact in the atmosphere.
 
 \subsubsection*{4)}
 
-The Kessler scheme is a simple warm-rain microphysics parameterization that includes only liquid-phase processes. It represents cloud water (qc) and rainwater (qr), with parameterizations for condensation, evaporation, and conversion of cloud water into rain.
+The Kessler scheme is a simple way to represent cloud and rain processes in the model. It only includes liquid water, meaning cloud water and rain. It simulates basic processes like condensation (cloud formation), evaporation, and the conversion of cloud water into rain.
 
 The scheme does not include ice-phase processes such as freezing, deposition, or graupel formation. As a result, it is computationally efficient but limited in its ability to represent upper-level cloud structure and mixed-phase processes in deep convection.
 
-The Morrison scheme is a more advanced two-moment microphysics parameterization that predicts both the mass mixing ratio and number concentration of hydrometeors. It includes multiple parameters such as cloud water, rain, ice crystals, snow, and graupel.
+The Morrison scheme is more advanced. It includes both liquid and ice particles, such as cloud water, rain, ice crystals, snow, and graupel. It also simulates many more processes, including freezing, melting, and interactions between different types of precipitation.
 
-The scheme represents a wide range of microphysical processes, including condensation, evaporation, freezing, melting, deposition, aggregation, and riming. This allows for a more realistic simulation of mixed-phase and ice processes in convective storms, particularly in the upper troposphere.
-
-Compared to the Kessler scheme, the Morrison scheme provides a more detailed and physically realistic representation of cloud and precipitation processes, but at a higher computational cost.
+This makes the Morrison scheme more realistic, especially for strong storms where ice processes are important. However, it is also more computationally expensive and takes longer to run.
 
 \subsection*{b)}
 
@@ -272,7 +280,7 @@ The horizontal domain is 120 km × 120 km, with 120 grid points in each directio
 \subsubsection*{3)}
 
 \subsubsection*{6)}
-Cloud phases: 
+\textbf{Cloud phases:}
 
 \begin{figure}[htbp]
     \centering
@@ -306,31 +314,31 @@ Cloud phases:
     \label{fig:cloud_evolution_morrison}
 \end{figure}
 
-\title{Initial phase (timestep 0-3):}
+\textbf{Initial phase (timestep 0-3):}
 
-At the beginning of the formation of the cell we have a weak convective cell. A localized updraft is developing near the surface. The cloud water (qc) is shallow and compact, and hasn't yet developed vertically, meaning convection is still weak. In this stage, warm air has begun to rise, but it isn't yet a storm. The flow field (wind and vertical velocity) shows a weaker updraft. There is very little graupel and cloud ice formed at this stage. 
+At the beginning of the formation of the cell we have a weak convective cell shown in the first figure in figure \ref{fig:cloud_evolution_morrison} at t=3. A localized updraft is developing near the surface. The cloud water (qc) is shallow and compact, and hasn't yet developed vertically, meaning convection is still weak. In this stage, warm air has begun to rise, but it isn't yet a storm. The flow field (wind and vertical velocity) shows a weaker updraft. There is very little graupel and cloud ice formed at this stage. 
  \\
 
 
-\title{Growth phase (4-7):}
+\textbf{Growth phase (4-7):}
 
-In this stage, we see rapid vertical development of the cloud water, which was shallower before. Cloud ice and graupel are also rapidly developing, and we can see a tall convective cloud column forming. The ice cloud is developing an anvil shape and spreading aloft. In this stage we have increasing buoyancy and latent heat release from the phase changes in the rising air. \\
+In this stage, shown in b) in figure \ref{fig:cloud_evolution_morrison}, we see rapid vertical development of the cloud water, which was shallower before. Cloud ice and graupel are also rapidly developing, and we can see a tall convective cloud column forming. The ice cloud is developing an anvil shape and spreading aloft. In this stage, we have increasing buoyancy and latent heat release from the phase changes in the rising air. \\
 
-\title{Supercell stage (8-11):}
+\textbf{Supercell stage (8-11):}
 
-The cloud has a well-defined core. 
-Here we have a well-defined anvil cloud spreading horizontally at upper levels. Here we also see multiple updrafts developing, and see significant amounts of cloud water, cloud ice, and graupel. We also see precipitation forming at the surface. With each timestep, the cloud gets more asymmetrical. At this stage, there is both buoyancy-driven updraft and downdraft driven by precipitation. 
+In section c) in figure \ref{fig:cloud_evolution_morrison}, the cloud now has a well-defined core. 
+Here we have a well-defined anvil cloud spreading horizontally at upper levels. Here we also see multiple updrafts developing, and see significant amounts of cloud water, cloud ice, and graupel. We also see precipitation forming at the surface. With each timestep, the cloud gets more asymmetrical. At this stage, there is both buoyancy-driven updraft and downdraft driven by precipitation. \\
 
-\title{Later stage (12-16):}
+\textbf{Later stage (12-16):}
 
-The storm starts to die out. We get smaller cores and a multicellular system. The anvil becomes broader, but less active. We have reduced buoyancy due to cold pools at the surface. There is more precipitation at the surface. 
+In the final stages, shown in d) of figure \ref{fig:cloud_evolution_morrison}, the storm starts to die out. We get smaller cores and a multicellular system. The anvil becomes broader, but less active. We have reduced buoyancy due to cold pools at the surface. There is more precipitation at the surface. 
 
-Vertical and horizontal slices. The vertical slices are taken around the core of the storm (x=48, y=48). The horizontal slices are taken at 500m, 2000m, 5000, and 10000m, although the dataset seems to start at 250m, so there might be an offset of 250m. 
+\textbf{Vertical and horizontal slices}. The vertical slices are taken around the core of the storm (x=48, y=48). The horizontal slices are taken at 500m, 2000m, 5000, and 10000m, although the dataset seems to start at 250m, so there might be an offset of 250m. \\
 
 
-\subsubsection{Horizontal slice profiles}
+\subsubsection*{Horizontal slice profiles}
 
-\title{Potential temperature:}
+\textbf{Potential temperature:}
 
 \begin{figure}[htbp]
     \centering
@@ -382,11 +390,21 @@ Vertical and horizontal slices. The vertical slices are taken around the core of
         \caption{$\theta$; 10000 m, $t=09$}
     \end{subfigure}
 
-    \caption{Horizontal slices of potential temperature ($\theta$) at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=06$, top row) and mature stage ($t=09$, bottom row) of the storm.}
+    \caption{Horizontal slices of potential temperature ($\theta$) for Morrison simulation at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=06$, top row) and mature stage ($t=09$, bottom row) of the storm.}
     \label{fig:theta_slices_morrison}
 \end{figure}
 
-\title{Wind components:}
+Comparing t=06 and t=09 at different heights in figure \ref{fig:theta_slices_morrison}, we see that the potential temperatures evolve from a generally smooth, homogeneous structure to more chaotic and varied. At t=06, only weak temperature perturbations are present, but by t=09, stronger anomalies appear at mid levels (2000-5000m) corresponding to the intensifying updraft and increased latent heat release. Further down, we see cooler anomalies forming, indicating the formation of precipitation-induced cold pools. The different height levels illustrate parts of the storm structure. At the bottom, 500m, it is dominated by relatively uniform temperatures and some inflow. Higher up, at 2000-5000m, there is more activity, with warm anomalies indicating updrafts. At 10000m, the flow becomes smoother and more uniform again, indicating the anvil and horizontally spreading motion (instead of vertical motion). \\
+
+Together, the vertical and horizontal potential temperatures show how latent heat release in updrafts and evaporative cooling in downdrafts shape the structure of a storm.
+
+\textbf{Wind components:}
+
+The horizontal slice of the u-component in figure \ref{fig:wind_slices_morrison} shows strong spatial gradients and a shift from negative to positive values across the region, as well as in height. At low levels (500m), the flow is relatively smooth/uniform and is directed toward the storm core, representing inflow feeding the storm. Higher up, the flow becomes more irregular, transitioning from mostly negative values to positive values, indicating both updrafts and downdrafts. The change of sign indicates regions of convergence and divergence, needed to sustain vertical motion. \\
+
+The v-component, also in figure \ref{fig:wind_slices_morrison}, has stronger variability at lower levels. We have airflow in different directions on both sides of the core/updraft, indicating horizontal wind shear. At higher levels, we observe a much more turbulent wind field, with greater variability in both velocity and direction. This indicates both rising and descending air, as we discussed earlier. \\
+
+The w-component in figure \ref{fig:w_slices_morrison} shows localized upward and downward movement, and at t=06, this movement is relatively weak and more confined. At t=09, the vertical velocity is stronger, with clearer updraft and downdraft regions. The velocity becomes stronger at higher levels. 
 
 \begin{figure}[htbp]
     \centering
@@ -438,7 +456,7 @@ Vertical and horizontal slices. The vertical slices are taken around the core of
         \caption{$v$; 10000 m, $t=09$}
     \end{subfigure}
 
-    \caption{Horizontal slices of the wind components $u$ (top row) and $v$ (bottom row) at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the mature stage of the storm ($t=09$).}
+    \caption{Horizontal slices of the wind components $u$ (top row) and $v$ (bottom row) for Morrison simulation at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the mature stage of the storm ($t=09$).}
     \label{fig:wind_slices_morrison}
 \end{figure}
 
@@ -492,14 +510,14 @@ Vertical and horizontal slices. The vertical slices are taken around the core of
         \caption{$w$; 10000 m, $t=0.9$}
     \end{subfigure}
 
-    \caption{Horizontal slices of the vertical wind component $w$ at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=0.6$, top row) and mature stage ($t=0.9$, bottom row) of the storm.}
+    \caption{Horizontal slices of the vertical wind component $w$ for Morrison simulation at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=0.6$, top row) and mature stage ($t=0.9$, bottom row) of the storm.}
     \label{fig:w_slices_morrison}
 \end{figure}
 
 
-\subsubsection{Vertical slice profiles}
+\subsubsection*{Vertical slice profiles}
 
-\title{Potential temperature}
+\textbf{Potential temperature}
 
 \begin{figure}[htbp]
     \centering
@@ -531,11 +549,14 @@ Vertical and horizontal slices. The vertical slices are taken around the core of
         \caption{$\theta$, $y=48$, $t=0.9$}
     \end{subfigure}
 
-    \caption{Vertical cross-sections of potential temperature ($\theta$) at $x=48$ (left) and $y=48$ (right) during the growth stage ($t=0.6$, top row) and mature stage ($t=0.9$, bottom row) of the storm.}
+    \caption{Vertical cross-sections of potential temperature ($\theta$) for Morrison simulation at $x=48$ (left) and $y=48$ (right) during the growth stage ($t=0.6$, top row) and mature stage ($t=0.9$, bottom row) of the storm.}
     \label{fig:theta_vertical_morrison}
 \end{figure}
 
-\title{Wind components}
+
+The vertical cross-sections in figure \ref{fig:theta_vertical_morrison} confirm what we saw in the horizontal slices earlier, namely that the warm anomalies correspond to a vertical column of updraft. Similar to the cooler surface anomalies, they correspond to descending air. From t0=6 to t=09, there is a development toward stronger vertical gradients and a more pronounced warm core, indicating a mature storm developing. 
+
+\textbf{Wind components}
 
 \begin{figure}[htbp]
     \centering
@@ -586,26 +607,12 @@ Vertical and horizontal slices. The vertical slices are taken around the core of
     \end{subfigure}
 
     \caption{Vertical cross-sections of the wind components from the Morrison simulation. The top row shows $u$ and $v$ at $t=09$, while the bottom row shows $w$ at $t=06$ and $t=09$.}
-    \label{fig:vertical_wind_kessler}
+    \label{fig:vertical_wind_morrison}
 \end{figure}
 
+The vertical wind profiles in figure \ref{fig:vertical_wind_morrison} show all three wind components, and two different timesteps for the vertical component w. This figure shows how the horizontal flow changes with height, through the storm core (y,x=48). The u-component shows strong vertical gradients and regions where the flow changes sign, indicating vertical wind shear and inflow/outflow structure. At low levels, the flow is directed toward the storm, but is disrupted higher up, where air has been lifted and spread out. The v-component also shows variation with height in the same areas as u (the storm region), indicating that the wind changes both horizontally and vertically. These two components together show a sheared environment, which helps support the storm. 
 
 
-
-
-Potential temperature profiles: 
-
-The vertical profiles at t=06 show that $\theta$ increases with height, indicating stable stratification. We do see some weak, localized perturbations and a slight warming in the midsection, indicating early latent heat release. At t=10, there is a clear warm anomaly in the mid- and left sections, which passes through the storm. Compared to t=06, we see colder temperatures forming near the surface. At t=10, there is a clear warm core. The difference between t=06 and t=10 shows that the updraft has strengthened, more latent heat has been released, and a mature supercell structure is forming. 
-
-The horizontal profiles at t=09 show mostly uniform $\theta$ at low height and some cooler anomalies near the storm center. At higher altitudes (especially 5000m), we can see more clearly warm anomalies, which corresponds to the updraft region. At 10000m, the temperature is much smoother and higher than before. There are fewer localized variations. 
-
-All the temperature profiles show a potential temperature that increases with height, which is a stable environment. Around the storm center there is warm air higher up due to updraft and latent heat release, and cold formations near the surface due to evaporation and downdraft. \\
-
-Wind profiles: 
-
-From the vertical w profile, we see a strong red area indicating an updraft and a strong blue area indicating a downdraft. It's localized in a column, where our supercell core is. The horizontal profile for w shows a weaker, more spread-out signal, with a few downdraft signatures. Here we see the cold pools forming, as discussed in our temperature profiles. At higher levels, the vertical motion is stronger, with updrafts and downdrafts more noticeable. This is situated at the core of our storm. \\
-
-The uinterp horizontal profiles show strong gradients and a change from positive to negative flow. This is the inflow and outflow of the storm. The vinterp horizontal profile shows wind shear where the air flows differently on each side of the updraft. 
 
 \subsection*{c)}
 
@@ -639,13 +646,13 @@ The uinterp horizontal profiles show strong gradients and a change from positive
         \caption{t = 13}
     \end{subfigure}
 
-    \caption{Cloud field evolution from the Kessler simulation at four different timesteps, showing the development of the system from early growth (t=3) to a more mature stage (t=13).}
+    \caption{Cloud evolution from the Kessler simulation at four different timesteps, showing the development of the system from early growth (t=3) to a more mature stage (t=13).}
     \label{fig:cloud_evolution}
 \end{figure}
 
 In the Kessler scheme, we have only cloud water (no ice) and precipitation at the ground. \\
 
-\title{Initial phase (timestep 0-3):}
+\textbf{Initial phase (timestep 0-3):}
 
 Here, the cloud is still weak and localized. A column is forming vertically, and there is very little precipitation at the ground. \\
 
@@ -667,7 +674,7 @@ We don't see a clear supercell structure; there is no single rotating updraft an
 
 \subsubsection*{Horizontal slices, t=06 and t=09}
 
-\title{Potential temperature:}
+\textbf{Potential temperature:}
 
 \begin{figure}[htbp]
     \centering
@@ -719,13 +726,13 @@ We don't see a clear supercell structure; there is no single rotating updraft an
         \caption{$\theta$; 10000 m, $t=09$}
     \end{subfigure}
 
-    \caption{Horizontal slices of potential temperature ($\theta$) at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=06$, top row) and mature stage ($t=09$, bottom row) of the storm.}
-    \label{fig:theta_slices}
+    \caption{Horizontal slices of potential temperature ($\theta$) for the Kessler simulation at four heights (500 m, 2000 m, 5000 m, 10000 m; left to right) during the growth stage ($t=06$, top row) and mature stage ($t=09$, bottom row) of the storm.}
+    \label{fig:theta_slices_kessler}
 \end{figure}
 
-At 500m, there are mostly uniform values, but slight localized variations near the storm region. So the boundary layer remains relatively well mixed, and only weak cooling occurs near the downdraft and precipitation areas. At 2000m, more structure appears with slight gradients near the storm region. This indicates air is being lifted  (we have cooler gradients). \\
+Figure \ref{fig:theta_slices_kessler} shows the horizontal slices of the potential temperature. At 500m, there are mostly uniform values, but slight localized variations near the storm region. So the boundary layer remains relatively well mixed, and only weak cooling occurs near the downdraft and precipitation areas. At 2000m, more structure appears with slight gradients near the storm region. This indicates air is being lifted  (we have cooler gradients). Generally, the temperature field is much more uniform than the Morrison simulation, both in height and for the two timesteps. The time evolution is very modest, showing only a slight increase in variability. \\
 
-\title{Wind, u and v:}
+\textbf{Wind, u and v:}
 
 \begin{figure}[htbp]
     \centering
@@ -777,15 +784,14 @@ At 500m, there are mostly uniform values, but slight localized variations near t
         \caption{vinterp; 10000m, t=09}
     \end{subfigure}
 
-    \caption{Horizontal slice plots of the horizontal wind components, $u$ (top row) and $v$ (bottom row), at four different heights during the mature stage of the storm ($t=09$).}
-    \label{fig:wind_slices}
+    \caption{Horizontal slice plots of the horizontal wind components, $u$ (top row) and $v$ (bottom row), at four different heights during the mature stage of the storm ($t=09$) in the Kessler simulation.}
+    \label{fig:wind_slices_kessler}
 \end{figure}
 
 
+The horizontal slices of the u and v components shown in figure \ref{fig:wind_slices_kessler} show spatial variability, a little less organized compared to the Morrison simulation in figure \ref{fig:wind_slices_morrison}. There are regions with stronger inflow and weaker outflow.  At 500m the winds are smoother, and you can see them feeding the storm region, towards the updraft region. At 2000m and higher, the winds become more irregular and spread out. There are both updrafts and downdrafts, and the winds are disrupted and deflected, but these regions are generally weaker than in the Morrison simulation. 
 
-The general pattern at both heights, for both wind components, shows clear spatial variability, with regions of stronger inflow and weaker outflow. At 500m the winds are smoother, and you can see them feeding the storm region, towards the updraft region. At 2000m, the winds become more irregular and spread out. There are both updrafts and downdrafts, and the winds are being disrupted and deflected. 
-
-\title{Vertical wind, w, at t=09 and t=06:}
+\textbf{Vertical wind, w, at t=09 and t=06:}
 
 \begin{figure}[h!]
     \centering
@@ -835,11 +841,16 @@ The general pattern at both heights, for both wind components, shows clear spati
         \caption{winterp; 10000m, t=09}
     \end{subfigure}
 
-    \caption{Horizontal slice plots of the vertical wind component, winterp, at four different heights around the growth stage of the storm, t=06, and the mature stage of the storm, t=09 .}
+    \caption{Horizontal slice plots of the vertical wind component, winterp, at four different heights around the growth stage of the storm, t=06, and the mature stage of the storm, t=09 in the Kessler simulation.}
     \label{fig:wind_slices}
 \end{figure}
 
+
+Figure \ref{fig:wind_slices} shows the horizontal slices of the vertical component, at different heights and timesteps. At t=06, the motion is confined to localized areas, indicating early-stage convection. In the evolution to t=09, we see that the velocity becomes stronger, but more scattered. 
+
 \subsubsection*{Vertical slices}
+
+\textbf{Potential temperature}
 
 \begin{figure}[htbp]
     \centering
@@ -848,17 +859,21 @@ The general pattern at both heights, for both wind components, shows clear spati
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/th_x48_t09.png}
-        \caption{$\theta$, $x=48$, $t=0.9$}
+        \caption{$\theta$, $x=48$, $t=09$}
     \end{subfigure}\hfill
     \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Cloud_Kessler/Slice/Vertical/th_y48_t09.png}
-        \caption{$\theta$, $y=48$, $t=0.9$}
+        \caption{$\theta$, $y=48$, $t=09$}
     \end{subfigure}
 
-    \caption{Vertical cross-sections of potential temperature ($\theta$) at $x=48$ and $y=48$ during the mature stage of the storm ($t=0.9$).}
+    \caption{Vertical cross-sections of potential temperature ($\theta$) at $x=48$ and $y=48$ during the mature stage of the storm ($t=09$) .}
     \label{fig:theta_vertical}
 \end{figure}
+
+The temperature profile in \ref{fig:theta_vertical} shows weak vertical structure, as seen in the horizontal slices. The potential temperature increases with height, indicating stable conditions, and only weak perturbations are observed near the storm's core. Unlike the Morrison simulation, shown in figure \ref{fig:theta_vertical_morrison}, there is no strong warm core or clearly defined updraft column. The vertical gradients look relatively smooth. The absence of ice phases in the Kessler simulation limits latent heat release at higher levels and reduces vertical motion. 
+
+\textbf{Wind components}
 
 \begin{figure}[htbp]
     \centering
@@ -911,5 +926,14 @@ The general pattern at both heights, for both wind components, shows clear spati
     \caption{Vertical cross-sections of the wind components from the Kessler simulation. The top row shows $u$ and $v$ at $t=09$, while the bottom row shows $w$ at $t=06$ and $t=09$.}
     \label{fig:vertical_wind_kessler}
 \end{figure}
+
+
+The vertical wind slices shown in figure \ref{fig:vertical_wind_kessler} show that the horizontal wind components vary with height, but the gradients are not as strong as in the Morrison simulation in figure \ref{fig:vertical_wind_morrison}, and have no strong shear we saw there. There is some inflow and outflow structure, but it's fragmented and not so clearly related to a storm core. The two components show a weakly sheared environment, not strong enough to supply a long-lived organized storm. \\
+
+The vertical wind component shows some weak updraft and downdraft regions. The time evolution from t=06 to t=09 shows that the flow becomes stronger but remains very fragmented, without a dominant structure, as we saw in figure \ref{fig:vertical_wind_morrison}. This is also more characteristic of a multicell system rather than a supercell system. A multicellular system consists of many weak cells, rather than one strong cell. \\
+
+\textbf{Summary}
+
+In the Kessler simulation, we saw weaker wind and potential temperature fields. There weren't any strong warm anomalies as we saw in the Morrison simulation, which means less latent heat release and reduced buoyancy and vertical motion. The downdrafts and cold pools are more widespread, which disrupts the formation of a strong updraft. This isn't enough to support a storm cell, and the Kessler simulation produces a weaker, shorter-lived convective system compared to the Morrison simulation. 
 
 \end{document}
